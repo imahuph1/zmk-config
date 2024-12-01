@@ -50,7 +50,7 @@
    &none AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    &none
    &none AS(A) AS(S) AS(D) AS(F) AS(G)   AS(H) AS(J)  AS(K)     AS(L)   AS(SQT)  &none
    &none AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) &none
-                  &kp LGUI &mo 1 &kp RET     &kp SPACE &mo 2 &kp ESC
+                &kp LGUI &mo 1 &kp RET     &kp SPACE &mo 2 &mt LCTRL ESC
                         >;
                 };
                 lower_layer {
@@ -58,26 +58,26 @@
 // | none |  1    |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | none |
 // | none | BTCLR | BT0 | BT1 | BT2 | BT3 |   | LFT | DWN |  UP | RGT |     | none |
 // | none |       | HOME| PGUP| PGDN| END |   |     |     |     |     |     | none |
-//                      | GUI |     | ENT |   | SPC |     | ESC |
+//                      | GUI |     | ENT |   | SPC |     |     |
                         bindings = <
    &trans AS(N1)     AS(N2)       AS(N3)       AS(N4)       AS(N5)         AS(N6)   AS(N7)   AS(N8)  AS(N9)    AS(N0) &trans
    &trans &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans  &trans
    &trans &trans     &kp HOME     &kp PG_UP    &kp PG_DN    &kp END        &trans   &trans   &trans  &trans    &trans  &trans
-                    &kp LGUI   &trans   &kp RET      &kp SPACE   &trans   &kp ESC
+                                        &kp LGUI   &trans   &kp RET           &kp SPACE   &trans   &trans
                         >;
                 };
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
 // | none |   !   |   @   |   #   |   $   |   %   |   |  ^  |  &  |  *  |  (  |  )  | none |
-// | none |RGB_TOG|RGB_HUI|RGB_SAI|RGB_VAI|       |   |  -  |  =  |  [  |  ]  |  \  | none |
-// | none |RGB_MOD|RGB_HUD|RGB_SAD|RGB_VAD|QK_BOOT|   |  _  |  +  |  {  |  }  | "|" | none |
-//                            | GUI |     |  ENT  |   | SPC |     | ALT |
+// | none |RGB_TOG|       |       |       |STUDIO |   |  -  |  =  |  [  |  ]  |  \  | none |
+// | none |BL_TOG |       |       |       |       |   |  _  |  +  |  {  |  }  | "|" | none |
+//                            | GUI |     |  ENT  |   | SPC |     |     |
                         bindings = <
-   &trans &kp EXCL         &kp AT          &kp HASH         &kp DLLR         &kp PRCNT    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &trans
-   &trans &rgb_ug RGB_TOG  &rgb_ug RGB_HUI &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &trans       &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &trans
-   &trans &rgb_ug RGB_EFF  &rgb_ug RGB_HUD &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &bootloader  &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &trans
-                             &kp LGUI &trans   &kp RET    &kp SPACE   &trans    &kp RALT
+   &trans &kp EXCL         &kp AT &kp HASH  &kp DLLR  &kp PRCNT      &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &trans
+   &trans &rgb_ug RGB_TOG  &trans &trans    &trans    &studio_unlock &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &trans
+   &trans &bl BL_TOG       &trans &trans    &trans    &trans         &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &trans
+                                &kp LGUI   &trans   &kp RET             &kp SPACE   &trans    &trans
                         >;
                 };
         };
