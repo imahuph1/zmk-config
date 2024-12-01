@@ -9,6 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+
 &led_strip {
     chain-length = <27>;
 };
@@ -23,7 +25,19 @@
 
 / {
         
-             keymap {
+         behaviors {
+            as: auto_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping_term_ms = <135>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+                };
+        };
+
+
+        keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
@@ -31,12 +45,12 @@
 // | none |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | none |
 // | none |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  | none |
 // | none |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | none |
-//                    | ESC | LWR | ENT |   | SPC | RSE  | ESC |
+//                    | GUI | LWR | ENT |   | SPC | RSE  | ESC |
                         bindings = <
-   &none &kp Q &kp W       &kp E      &kp R      &kp T   &kp Y   &kp U       &kp I        &kp O         &kp P    &none
-   &none &kp A &mt LCTRL S &mt LALT D &mt LGUI F &kp G   &kp H   &mt LGUI J  &mt LALT K   &mt LCTRL L   &kp SQT  &none
-   &none &kp Z &kp X       &kp C      &kp V      &kp B   &kp N   &kp M       &kp COMMA    &kp DOT       &kp FSLH &none
-                &kp ESC &mo 1 &mt LSHIFT RET                 &mt LSHIFT SPACE &mo 2 &kp ESC
+   &none AS(Q) AS(W) AS(E) AS(R) AS(T)   AS(Y) AS(U)  AS(I)     AS(O)   AS(P)    &none
+   &none AS(A) AS(S) AS(D) AS(F) AS(G)   AS(H) AS(J)  AS(K)     AS(L)   AS(SQT)  &none
+   &none AS(Z) AS(X) AS(C) AS(V) AS(B)   AS(N) AS(M)  AS(COMMA) AS(DOT) AS(FSLH) &none
+                &kp LGUI &mo 1 &kp RET     &kp SPACE &mo 2 &mt LCTRL ESC
                         >;
                 };
                 lower_layer {
@@ -46,7 +60,7 @@
 // | none |       | HOME| PGUP| PGDN| END |   |     |     |     |     |     | none |
 //                      | GUI |     | ENT |   | SPC |     |     |
                         bindings = <
-   &trans &kp N1     &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8  &kp N9    &kp N0  &trans
+   &trans AS(N1)     AS(N2)       AS(N3)       AS(N4)       AS(N5)         AS(N6)   AS(N7)   AS(N8)  AS(N9)    AS(N0) &trans
    &trans &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans  &trans
    &trans &trans     &kp HOME     &kp PG_UP    &kp PG_DN    &kp END        &trans   &trans   &trans  &trans    &trans  &trans
                                         &kp LGUI   &trans   &kp RET           &kp SPACE   &trans   &trans
