@@ -31,23 +31,23 @@
 // | none |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | none |
 // | none |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  | none |
 // | none |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | none |
-//                    | ESC | LWR | ENT |   | SPC | RSE  | ESC |
+//                    | LWR | ESC | ENT |   | SPC | ESC  | RSE |
                         bindings = <
    &none &kp Q &kp W       &kp E      &kp R      &kp T   &kp Y   &kp U       &kp I        &kp O         &kp P    &none
    &none &kp A &mt LCTRL S &mt LALT D &mt LGUI F &kp G   &kp H   &mt LGUI J  &mt LALT K   &mt LCTRL L   &kp SQT  &none
    &none &kp Z &kp X       &kp C      &kp V      &kp B   &kp N   &kp M       &kp COMMA    &kp DOT       &kp FSLH &none
-                &kp ESC &mo 1 &mt LSHIFT RET                 &mt LSHIFT SPACE &mo 2 &kp ESC
+                 &mo 1 &kp ESC &mt LSHIFT RET                 &mt LSHIFT SPACE &kp ESC &mo 2 
                         >;
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
 // | none |  1    |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | none |
-// | none | BTCLR | BT0 | BT1 | BT2 | BT3 |   | LFT | DWN |  UP | RGT |     | none |
+// | none | BTCLR | BT0 | BT1 | BT2 | BT3 |   | LFT | DWN |  UP | RGT |  :  | none |
 // | none |       | HOME| PGUP| PGDN| END |   |     |     |     |     |     | none |
-//                      | GUI |     | ENT |   | SPC |     |     |
+//                      |     |     | ENT |   | SPC |     |     |
                         bindings = <
    &trans &kp N1     &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8  &kp N9    &kp N0  &trans
-   &trans &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans  &trans
+   &trans &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp LEFT &kp DOWN &kp UP  &kp RIGHT &kp SEMI  &trans
    &trans &trans     &kp HOME     &kp PG_UP    &kp PG_DN    &kp END        &trans   &trans   &trans  &trans    &trans  &trans
                                         &kp LGUI   &trans   &kp RET           &kp SPACE   &trans   &trans
                         >;
@@ -58,7 +58,7 @@
 // | none |   !   |   @   |   #   |   $   |   %   |   |  ^  |  &  |  *  |  (  |  )  | none |
 // | none |       |       |       |       |STUDIO |   |  -  |  =  |  [  |  ]  |  \  | none |
 // | none |       |       |       |       |       |   |  _  |  +  |  {  |  }  | "|" | none |
-//                            | GUI |     |  ENT  |   | SPC |     |     |
+//                            |     |     |  ENT  |   | SPC |     |     |
                         bindings = <
    &trans &kp EXCL  &kp AT &kp HASH  &kp DLLR  &kp PRCNT      &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &trans
    &trans &trans    &trans &trans    &trans    &studio_unlock &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &trans
